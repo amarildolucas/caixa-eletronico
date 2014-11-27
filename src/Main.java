@@ -28,21 +28,23 @@ public class Main {
 					System.out.println("-----------------------------------------------------------");
 					System.out.println("             CAIXA ELETRONICO - Saque");
 					System.out.println("-----------------------------------------------------------\n");
+					
 					System.out.println("Digite o valor a sacar: ");
 					quantia = teclado.nextFloat();
-					caixa.sacar(quantia);
+					boolean flag = caixa.sacar(quantia);
 					
-					/*if (caixa.sacar(quantia) == false) {
+					if (flag == false) {
 						System.out.println("Nao existem notas suficientes no Caixa para esta quantia!\n");
-					}*/
-					//else {
+					}
+					else {
 						System.out.printf("Saque de R$ %.2f efetuado com sucesso!\n", quantia);
+						
 						System.out.printf("Notas de R$ 5        : %d\n", caixa.mostraQtdTipoNotas(5));
 						System.out.printf("Notas de R$ 10       : %d\n", caixa.mostraQtdTipoNotas(10));
 						System.out.printf("Notas de R$ 20       : %d\n", caixa.mostraQtdTipoNotas(20));
 						System.out.printf("Notas de R$ 50       : %d\n", caixa.mostraQtdTipoNotas(50));
 						System.out.printf("Notas de R$ 100      : %d\n", caixa.mostraQtdTipoNotas(100));
-					//}
+					}
 					break;
 				case 2:
 					System.out.println("-----------------------------------------------------------");
@@ -77,8 +79,8 @@ public class Main {
 					System.out.println("-----------------------------------------------------------\n");
 					
 					System.out.printf("Saldo atual          : R$ %.2f\n", caixa.consultarSaldo());
-					System.out.printf("Qtd. de saques       : \n");
-					System.out.printf("Total de saques      : R$ \n");
+					System.out.printf("Qtd. de saques       : %d\n", caixa.getQtdSaques());
+					System.out.printf("Total de saques      : R$ %.2f\n", caixa.getTotalSaques());
 					System.out.printf("Notas de R$ 5        : %d\n", caixa.mostraQtdTipoNotas(5));
 					System.out.printf("Notas de R$ 10       : %d\n", caixa.mostraQtdTipoNotas(10));
 					System.out.printf("Notas de R$ 20       : %d\n", caixa.mostraQtdTipoNotas(20));
