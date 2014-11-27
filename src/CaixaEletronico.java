@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 
 
 public class CaixaEletronico {
@@ -17,8 +18,18 @@ public class CaixaEletronico {
 		}
 		else {
 			float valor = 0;
-			for (int i = 0; i < qtdNotas.size(); i++) {
-				
+			float valorAux;
+			int aux;
+			
+			while (valor != quantia) {
+				Collections.sort(qtdNotas);
+				aux = (int) (quantia / (((Integer)qtdNotas.get(qtdNotas.size() - 1)).intValue()));
+				if (mostraQtdTipoNotas (((Integer) qtdNotas.get(qtdNotas.size() - 1)).intValue()) == aux) {
+					for (int i = 0; i < aux; i++) {
+						valor = (int) valor + ((Integer) qtdNotas.get(qtdNotas.size() - 1)).intValue();
+						qtdNotas.remove(qtdNotas.size() - 1);
+					}
+				}
 			}
 			return true;
 		}
