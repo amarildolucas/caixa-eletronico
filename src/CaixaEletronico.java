@@ -3,7 +3,7 @@ import java.util.Collections;
 
 
 public class CaixaEletronico {
-	private float quantia;
+
 	private float totalSaques;
 	private int qtdSaques;
 	
@@ -15,6 +15,9 @@ public class CaixaEletronico {
 	
 	public boolean sacar(float quantia) {
 		if ((quantia <= 0 || quantia > consultarSaldo())) {
+			return false;
+		}
+		else if (quantia % 5 != 0) {
 			return false;
 		}
 		else {
